@@ -3,6 +3,28 @@
 ## html属性
 `iframe`内联框架标签
 
+## input属性
+1. tybe
+   + text  单行文本输入框
+   + password 密码输入框
+   + radio 单选按钮
+   + checkbox  复选框
+   + button 普通按钮
+   + submit 提交按钮
+   + reset  重置按钮
+   + image  图像形式的提交按钮
+   + file 文件域
+
+2. name 值自定义 控件的名称
+
+3. value 自定义input在空间中昂的默认文本值
+
+4. size 正整数  input在页面中的显示宽度
+
+5. checked 默认被选中的项
+
+6. maxlength 值为正整数 文本框中最多可输入的字符
+
 ## 常用属性
 `width`宽  `height`高值为px或em等  
 

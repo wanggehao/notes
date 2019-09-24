@@ -31,12 +31,17 @@
 ### 新增多媒体标签
 
 + `video` 视频标签
-        1.  `autoplay` 自动播放(muted 开启静音  视频自动播放就可以生效)
-        2.  `controls` 是否显示默认播放控件
-        3.  `loop` 循环播放
-        4.  `preload` 预加载，同时设置了autoplay，此属性将失效
-        5.  `width` 设置播放窗口宽度
-        6.  `height` 设置播放窗口的高度
+  1.  `autoplay` 自动播放(muted 开启静音  视频自动播放就可以生效)
+
+  2.  `controls` 是否显示默认播放控件
+
+  3.  `loop` 循环播放
+
+  4.  `preload` 预加载，同时设置了autoplay，此属性将失效
+
+  5.  `width` 设置播放窗口宽度
+
+  6.  `height` 设置播放窗口的高度
 
 ### 表单新增
 
@@ -105,13 +110,13 @@
 
 + n支持简单的表达式
 
-        - (2n)代表偶数
+  - (2n)代表偶数
 
-        - (2n+1)代表奇数
+  - (2n+1)代表奇数
 
-        - (3n) 所有三的倍数
+  - (3n) 所有三的倍数
 
-        - (-1n+5)选中前5个
+  - (-1n+5)选中前5个
 
 #### 目标伪类选择器
 
@@ -121,9 +126,9 @@
 
 + 语法为E::before、E::after
         
-        - 这是一个行内元素需要转换成块元素
+  - 这是一个行内元素需要转换成块元素
 
-        - 需要写content:'内容'
+  - 需要写content:'内容'
 
 ### 颜色(hsl)
 
@@ -136,9 +141,9 @@
 + A 透明度 取值范围0~1
 
 + 关于透明度：
-        - opacity只能针对整个盒子设置透明度，子盒子及内容会继承父盒子的透明度；
+  - opacity只能针对整个盒子设置透明度，子盒子及内容会继承父盒子的透明度；
 
-        - transparent 不可调节透明度，始终完全透明
+  - transparent 不可调节透明度，始终完全透明
 
 ### 文本阴影
 
@@ -158,6 +163,133 @@
 + CSS2盒模型:内容+ padding +border box-sizing:content-box
 
 + css3盒模型:padding和border会挤压内容 设置的宽高就是在实际页面中的宽高   box-sizing: border-box
+
+### 边框图片
+
++ 语法:
+
+  * `border-image-source: url('border.png')`;引入图片,
+
+  * `border-image-slice`	图片边框向内偏移量
+       
+  * `border-image-width`	边框宽度
+
+  * `border-image-outset`      边框图像区域超出边框的量
+
+  * `border-image-repeat`图像边框是否应平铺(repeated)、铺满(rounded)或拉伸(stretched)
+
+### 线性渐变
+
++ 语法: `background:linear-gradient(to方向, 颜色, 颜色)`
+
++ 添加私有化前缀时 方向不带to 而且正好相反
+
+`background: linear-gradient(to right, red 20%, yellow 60%)`
+
+        中间颜色产生渐变
+
+        20%以前用红色填充 60%以后用黄色填充
+
+### 径向渐变
+
++ 语法 `radial-gradient(center(圆形或者椭圆默认为圆), shape size(指定渐变开始的方向), start-color, ..., last-color)`
+
+### 背景
+
+* 语法 `background-size:cover/contain`
+
+  * cover不保证图片完整性,但会填充满盒子
+  * contain 保证图片完整性,但是会留白
+
+### 背景增强属性
+
+1. 裁剪背景
+
+  * 语法 `background-clip` (padding-box从padding开始裁剪)(border-box从border开始裁剪 默认)(content-box从内容开始裁剪)
+
+2. 设置背景从/ /为起点
+
+  * 语法 `background-origin`(padding-box以padding为起点 默认)(border-box以border为起点)(content-box以内容为起点)
+
+### 过渡
+
+1. ` transition-property` 添加过渡的值 
+
+2. `transition-duration` 过渡完成的时间
+
+3. `transition-delay` 过渡延迟开始的时间
+
+4. `transition-timing-function`过渡运动的函数 
+
+  * linear
+  * ease
+  * ease-in
+  * ease-out
+  * ease-in-out
+  * cubic- bezier(n, n, n, n)
+
+5. `transition: all .4s ease 1s;`简写,注:延迟时间要写到最后.
+
+### 2d变换
+
+1. transform 可以实现  2d变换  旋转  平移(translate)   拉伸  缩放
+
+  * `transform: translate(20px, 10px)` 平移
+
+  * `transform: rotate(45deg)` 旋转
+        
+        * 旋转特定位置 `transform-origin: 值可以位数值也可以为top bottom left right;`
+
+  * `transform: scale(0.8);` 缩放
+
+  * `transform: skew(45deg, 30deg);`拉伸
+
+  * 可以简写 `transform:translate() rotate() scale() skew()`
+
+### 3d变换
+
+1. transform的平移和旋转有x,y,z轴 可以实现x,y,z轴的旋转/平移
+
+2. 3D变换需要设置景深 `perspective`
+  
+  * 作为一个属性，设置给父元素，作用于所有3D转换的子元素	
+  * 作为transform属性的一个值，做用于元素自身
+
+3. 3D的呈现`transform-style`
+  
+  * `flat`：所有子元素在 2D 平面呈现 默认值
+  * `preserve-3d` 开启3D舞台 
+
+4.  `backface-visibility` 设置背面是否可见visible(默认值可见)/hidden(不可见)
+
+### BFC
+
+1. 什么是BFC?
+
+   BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。包括浮动，和外边距合并等等，
+   因此，有了这个特性，我们布局的时候就不会出现意外情况了。
+   
+
+2. 什么情况下可以触发BFC?
+
+   - float属性不为none
+
+   - position为absolute或fixed
+
+   - display为inline-block, table-cell, table-caption, flex, inline-flex
+
+   - overflow不为visible
+
+3. BFC能用来做什么？
+
+  - 清除元素内部浮动
+
+  - 解决外边距合并问题
+
+  - 制作右侧自适应的盒子问题
+
+
+
 
 
 

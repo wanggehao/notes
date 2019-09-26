@@ -144,7 +144,269 @@ js有时候 会偷偷的 对数据类型进行转换(隐式转换)
 
 - 注意 严格等于  ===  和  ==  的区别: === 会先比较数据类型,在比较数据
  
+ ## Math对象
+
+1. Math.ceil()   天花板函数
+   - 返回一个数字的整数部分。对该数字进行向上舍入。
+    注意：该方法不会对数字进行四舍五入运算。
+
+2. Math.floor()  地板函数
+
+3. Math.max(x,y) 返回多个数中的最大值
+
+4. Math.min(x,y)	返回多个数之间的最小值
+
+5. Math.random()	生成 0-1 之间的随机数 包含0  不包含1 [0,1)
+  - 求任意范围的 随机 整数 `Math.floor(Math.random()*个数)+最小值`
+
+6. Math.pow(x,y)	返回 x 的 y 次幂(方))
+
+7. Math.sqrt()	对一个数进行开方运算
+
+8. Math.round()	四舍五入取整（正数四舍五入，负数五舍六入）
+
+## 逻辑运算符
+
+1. ` && ` 与（ 且）： 两个都为真， 结果才为真。
+  - JS 中的&&属于短路的与，如果第一个值为 false，则不会看第二个值。
+      - 第一个值为true，会检查第二个值
+      - 第一个值为false, 整体结果确定false, 后边没有必要在看了
+
+2. ` || `或： 只要有一个是真， 结果就是真。
+      - 第一个值为true,整体就会确定为true,不会看第二个值
+      - 第一个值为false,会检查第二个值
+
+3. `!`   非： 对一个布尔值进行取反。
+
+## if 语句
+
+1. if (条件表达式) {
+        条件表达式 只有两种结果 true false 
+        条件为真时，做的事情
+       }
+   - ``` JavaScript
+
+      var age = prompt('请输入您的年龄');
+      if (age > 18 && age < 60) {
+            alert('你可以考驾照');
+        }
+   
+      ```
+2. if 后边的 括号 具备隐式转换的功能(转换为布尔值)
+
+3. 第二种形式,条件分支语句 else
+
+  - ``` JavaScript
+        var cj = 80;
+        if (cj >= 60) {
+            alert('及格');
+        } else {
+            alert('不及格');
+        }
+    ```
+4. 多分支语句
+
+``` JavaScript
+        if (cj >= 90) {
+            alert('优秀')
+        } else if (cj >= 80) {
+            alert('良好');
+        } else if (cj >= 60) {
+            alert('及格');
+        } else {
+            alert('不及格')
+        }
+```
+
+## if 语句的嵌套
  
+``` js
+
+f       (bianhao == 92){
+7				//编号是92的时候做的事情
+8				if(sheng >= 20){
+9					var price = sheng * 5.9;
+10				}else{
+11					var price = sheng * 6;
+12				}
+13			}else if(bianhao == 97){
+14				//编号是97的时候做的事情
+15				if(sheng >= 30){
+16					var price = sheng * 6.95;
+17				}else{
+18					var price = sheng * 7;
+19				}
+20			}else{
+21				alert("对不起，没有这个编号的汽油！");
+22			}
+
+```
+
+## 三元运算符
+
+ 1. 表达式?如果表达式结果为 true 执行这里的代码:如果表达式结果为 false 执行冒号后面的代码;
+
+ ```js
+         结果为真 走冒号前边的代码  为假 走冒号后边的代码
+        5 > 3 ? console.log("5大于3") : console.log("5不大于3");
+
+ ```
+
+## switch
+
+switch (表达式) {
+    case 值1：
+    语句体1;
+    break;
+
+    case 值2：
+    语句体2;
+    break;
+
+    ...
+    ...
+
+    default：
+    语句体 n + 1;
+    break;
+}
+
+```js
+var color = 'red';
+switch (color) {
+  case 'red':
+   console.log('红色');
+   break;
+  case 'pink':
+   console.log('粉色');
+   break;
+  case 'green':
+   console.log('绿色');
+   break;
+  case 'orange':
+   console.log('橘色');
+   break;
+  default:
+  console.log('默认黑色');
+   break;
+        }
+```
+
+## Date对象
+
+1. Date对象是js内置对象
+
+2. Date是构造函数 首字母大写 用来造(创建)对象
+
+3. 构造函数 创建对象  需要用 new   这个关键词
+   ```js
+   var date1 = new Date(); // 获取当前时间对象
+   // 拼接字符串 常规操作
+    // 2019年9月26日 14时26分30秒;
+    // var str = year + '年' + (month + 1) + '月' + day + '日 ' + hour + '时' + min + '分' + second + '秒';
+
+    var str = '' + year + '年' + (month + 1) + '月' + day + '日 ' + hour + '时' + min + '分' + second + '秒';
+    console.log(str);
+   ```
+
+4. 时间戳
+```js
+// 时间戳 
+ console.log(dateTime.getTime());
+// 距离 1970年 0时0分0秒  的  毫秒数
+// console.log(new Date(1569479335949));
+```
+
+## for循环
+
+1. 循环语句，就是执行一些类似的代码，让这些代码的编写变得简化。
+
+2. 语法
+```js
+ for (var i = 1; i <= 100; i++) {
+      console.log(1);//写需要执行的操作
+  }
+```
+ 执行初始化表达式， 初始化变量（ 初始化表达式只会执行一次）
+
+ 执行条件表达式， 判断是否执行循环：
+ 如果为true， 则执行循环语句
+ 如果为false， 终止循环
+3. for 主要用途就是用来遍历数据
+
+## while循环
+
+1. whlie循环 先判断在执行 如果返回值为false 则不会执行
+```js
+// while (条件表达式) {
+//     语句...
+// }
+// 遍历 1-10;
+ var i = 1;
+while (i <= 10) {
+    console.log(i);
+            i++;
+}
+```
+
+2. do while循环 先执行在判断一开始就不符合条件,do while  会执行一次,
+```js
+// do...while 循环
+
+// do {
+//     语句...
+// } while (条件表达式)
+// 先执行在判断
+
+var n = 1;
+do {
+   console.log(n);
+   n++;
+} while (n <= 10)
+```
+
+## break和continue 
+
+1. break用来结束 while的循环
+```js
+for (var i = 1; i <= 9999; i++) {
+    if (i % 3 === 0) {
+        console.log('找到了', i);
+         // 因为只需要找到一个 
+         // 找到之后 ,需要让循环停止
+         break;
+    }
+  ]
+```
+
+2. continue用来跳过while循环中的某个值
+```js
+ for (var i = 1; i <= 10; i++) {
+     if (i % 2 === 1) {
+        continue;
+     }
+     console.log(i);
+
+ }
+```
+
+## for语句的嵌套
+
+1. 语法
+```js
+for (var i = 0; i < 10; i++) {
+
+ for (var j = 0; j < 5; j++) {
+   console.log(i, j);
+      }
+ }
+```
+外层循环  0 ---> 0和0  01 02 03 04
+ 1--->10 11 12 13 14 
+
+ 2----> 20 21 22 23 24
+
+ 3--->  30 31 32 33 34
  
  
  

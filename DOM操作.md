@@ -147,3 +147,45 @@ pEl.innerText = '<p>今天天气很好</p>';//显示在页面上 <p>今天天气
 ```js
 div.innerHTML = '<p>今天天气很好</p>'//显示在页面上 今天天气很好
 ```
+### 获取事件源
+```js
+ var box = document.querySelector('.box'); // 拿到了  实际的 对象  不是伪数组
+  var lis = document.querySelectorAll('li'); // 类数组
+```
+
+### 自定义属性值
+
+* 在HTML标签里边可以添加自定义属性值`data-***`
+
+* 在js中通过 `Node.dataset['info']` 我们便可以获取到自定义的属性值
+
+### addEventListener
+
+* addEventListener 使用
+  - 语法：target.addEventListener(type,listener,useCapture]);
+  - target： 文档节点、document、window 或 XMLHttpRequest。 (事件源)
+  - type： 字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等。
+  - listener ：实现了 EventListener 接口或者是 JavaScript 中的函数
+  - useCapture ：是否使用捕获，一般用 false。true 代表捕获，false 代表冒泡
+    - 冒泡  就是  从里到外 触发  false
+    - 捕获  就是   从外到里 触发  true
+
+* addEventListener移除
+  - 移除时，必须和绑定时一一对应
+```js
+w2.addEventListener('click', foo, false)
+w2.removeEventListener('click', foo, false);
+function foo() {
+  alert('不凡');
+}
+```
+
+### 定时器
+
+* setTimeout(); 延迟执行
+
+* setInterval(); 循环执行
+
+* clearTimeout(); 清除延迟执行的定时器
+
+* clearInterval(); 清除循环执行的定时器

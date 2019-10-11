@@ -162,3 +162,79 @@ $('button:eq(4)').click(function () {
 
 * DOM 对象转换成 jQuery 对象: `var btn = document.getElementById('btn');    $(btn) ====> 把 DOM 对象转成了 jQuery 对象`
 
+## jQ动画
+
+`show()` 显示动画 支持参数:slow：600ms、normal：400ms、fast：200ms 和任意数字(单位:毫秒)和回调函数
+
+`hide()` 隐藏动画 用法参数同显示
+
+`slideUp()` 滑出动画 用法参数同显示
+
+`slideDown()` 滑入动画
+
+`slideToggle()` 滑入/滑出动画 
+
+`fadeIn()` 淡入动画
+
+`fadeOut()` 淡出动画
+
+`fadeToggle()` 淡入/淡出动画
+
+`fadeTo()` 改变透明度到某个值
+
+## jQ自定义动画
+
+`$(selector).animate(styles,speed,easing,callback)`
+第一个参数:要修改的css属性(必填);
+第二个参数:动画执行所需要的时间(可选);
+第四个参数:动画执行完以后立即执行的回调参数;
+
+## 停止动画
+
+1. `stop()`作用：停止当前正在执行的动画
+
+2. `stop(stopAll,goToEnd)`
+  1. stopAll: 是否全部停止动画(停止队列中所有动画), 默认 false
+  2. goToEnd: goToEnd: 是否将停止的动画, 停在当前动画的最后一个状态
+
+## jQ节点操作
+
+1. 插入节点:`append()`
+  - 参数 jq对象 标签字符串 或者DOM对象;
+  - 在被选中的标签内部从后面插入
+  - 如果是页面中存在的元素， 那么调用 append() 后， 会把这个元素放到相应的目标元素里面去但是， 原来的这个元素， 就不存在了。(剪切)
+  - 如果是给多个目标追加元素， 那么方法的内部会复制多份这个元素， 然后追加到多个目标里面
+
+2. `prepend()` 作用： 在被选元素内部从前面追加内容或节点。
+
+3. `after()`作用： 在被选元素之后， 作为兄弟元素插入内容或节点
+
+4. `before()`作用： 在被选元素之前， 作为兄弟元素插入内容或节点
+
+5. 删除节点:
+ `$(selector).empty();`
+ `$(selector).html(“”);`
+ `$(selector).remove();`  //会把对象也干掉
+
+6. 复制节点:`$(selector).clone();`
+
+## bom相关
+height()
+height(200)
+width()
+width(100)
+取值类型为 num 可以直接参与运算
+
+offset() 作用： 获取或设置元素相对于文档的位置
+
+position() 作用： 获取相对于其最近的具有定位的父元素的位置。
+
+scrollTop() 作用： 获取或者设置元素垂直方向滚动的位置   网页卷进去的 高度
+原生兼容写法
+     ```
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+     ```
+
+
+
+
